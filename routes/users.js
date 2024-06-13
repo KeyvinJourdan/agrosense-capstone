@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 router.get('/', (req, res) => {
-    res.send('Selamat Datang di AgroSense API')
+    res.send('Selamat Datang di AgroSense API');
 });
 
 // Registrasi

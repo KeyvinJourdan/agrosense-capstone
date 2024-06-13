@@ -23,10 +23,19 @@ async function initializeDatabase() {
         await connection.query('SELECT 1');
         console.log('Koneksi ke database berhasil');
 
+        // Secret JWT
+        const JWT_SECRET = 'your_jwt_secret'; // Ganti dengan kunci rahasia Anda
+        app.set('jwtSecret', JWT_SECRET);
+
         // Routes
         app.use('/api', userRoutes);
 
-        const PORT = process.env.PORT || 8080;
+        // Default route
+        app.get('/', (req, res) => {
+            res.send('API berjalan dengan baik');
+        });
+
+        const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {
             console.log(`Server berjalan pada port ${PORT}`);
         });
